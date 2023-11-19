@@ -65,7 +65,7 @@ function updateReadStatus(book) {
 function removeBook(book) {
     // search through for the book title and pop it from myLibrary
     for (let i = 0; i < myLibrary.length; i++) {
-        if (myLibrary[i].title == book.title) {
+        if (myLibrary[i].title == book.title && myLibrary[i].author == book.author) {
             myLibrary.splice(i, 1);
             break;
         }
@@ -103,6 +103,7 @@ submit.addEventListener('click', (event) => {
 const testBook = new Book("Harry Potter", "J.K. Rowling", 345, true);
 addBookToLibrary(testBook);
 console.log(myLibrary);
+
 
 
 
