@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the odin library.</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="header">
+        <h1>the odin library.</h1>
+        <button id="addBook">+ BOOK</button>
+    </div>
+    <div class="grid-container">
+    </div>
+
+    <!-- creating the form here -->
+
+    <dialog>
+        <form id="bookForm">
+            <div class="form-row">
+                <legend>Title:</legend><input type="text" id="bookTitle" required>
+            </div>
+            <div class="form-row">
+                <legend>Author:</legend><input type="text" id="bookAuthor" required>
+            </div>
+            <div class="form-row">
+                <legend>Pages:</legend><input type="number" id="bookPages" required>
+            </div>
+            <div class="form-row">
+                <legend id="bookRead">Have you read this book:</legend>
+                <input type="radio" id="radio-read" name="read-status" value="true" checked><label for="read-status">Yes</label>
+                <input type="radio" id="radio-not-read" name="read-status" value="false"><label for="read-status">No</label>
+            </div>
+            <div class="form-row">
+                <button type="submit" id="submitForm">Add Book</button>
+                <button id="cancelForm">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+</body>
+
+</html>
