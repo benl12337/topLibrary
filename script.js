@@ -67,7 +67,7 @@ class Library {
 }
 
 class Book {
-    constructor(title = "Harry Potter", author = "J.K Rowling", pages = 0, read = false) {
+    constructor(title = "Harry Potter", author = "J.K Rowling", pages = 345, read = false) {
         this.title = title;
         this.author = author;
         this.pages = pages;
@@ -76,16 +76,24 @@ class Book {
 }
 
 submit.addEventListener('click', (event) => {
+
+    // logic for handling validation
+    const title = document.getElementById('bookTitle');
+    const author = document.getElementById('bookAuthor');
+    const pages = document.getElementById('bookPages');
+
+    if (title.validity.valueMissing || author.validity.valueMissing || pages.validity.valueMissing) {
+        return;
+    }
     event.preventDefault();
 
+    
+
     // defining all the form inputs
-    const title = document.getElementById('bookTitle').value;
-    const author = document.getElementById('bookAuthor').value;
-    const pages = document.getElementById('bookPages').value;
     const read = document.querySelector('#radio-read').checked ? true : false;
 
     // create book
-    const newBook = new Book(title, author, pages, read);
+    const newBook = new Book(title.value, author.value, pages.value, read);
     testLibrary.addBookToLibrary(newBook);
     dialog.close();
     form.reset();
@@ -103,7 +111,7 @@ cancel.addEventListener('click', () => {
 
 // Test case to add book
 const testLibrary = new Library();
-const testBook = new Book("Harry Potter", "J.K. Rowling", 345, true);
+const testBook = new Book();
 testLibrary.addBookToLibrary(testBook);
 
 
